@@ -1,0 +1,28 @@
+/*
+ *  タイトルパネルの共通変数定義用
+ *  責任者 近藤猛
+ */
+// ncukonodo@gmail.com
+//
+// アニメーションに関しては以下を参照
+// http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/css/css3%E3%83%95%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E8%83%8C%E6%99%AF%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%82%B7%E3%83%A7%E3%83%BC/
+//
+//  2016/01/31 近藤作成
+
+$fontColor: white;
+$backImage: "教授回診.jpg"; // アニメーションが無いときのためのバックグラウンド
+$dotImage: "dotpattern.png";
+
+$panelImage1: "教授回診.jpg";
+$panelImage2: "S__5570565.jpg";
+$panelImage3: "忘年会2013.jpg";
+
+@mixin centerPosition{
+  display: block;
+  position: absolute;
+  margin:auto;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}

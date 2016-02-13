@@ -1,0 +1,23 @@
+/*
+ *  サイト共通スタイルユニット
+ *  責任者 近藤猛
+ */
+// ncukonodo@gmail.com
+// コーディング規則にはBEMを使用する(一部以下のようにアレンジ)
+//    右記を参照 http://qiita.com/mrd-takahashi/items/07dc3b4bad027daa2884
+//    BlockとElement間セパレータ "_"シングルアンダーバー
+//    Modifierセパレータ "-" ハイフン1つ
+//    ModifierのKeyとValueの区切りはローワーキャメルケース
+//    単語間の区切りはローワーキャメルケース
+//  2016/01/25 作成
+
+@require "_variables"; // 共通設定を読み込み
+
+@require "mixins/_iconfont"; // アイコンフォントを読み込み
+@require "mixins/_mediaQueries"; // メディアクエリ読み込み
+
+// baseの記述(SMACSSの概念)
+@require "_base"; // normalizeも含むベースの読み込み
+
+// mixinを使ってアイコンを定義
+_iconFonts('icon-', 'pin' 'facebook' 'mail' 'twitter')// 最初の引数でprefix, 後は使うアイコンの名前を並べる

@@ -1,0 +1,37 @@
+//
+// メディアクエリーの処理
+//
+// 作成 近藤猛
+// ncukondo@gmail.com
+// 2016/02/12 作成(近藤)
+
+@require'../_variables' //共通設定の読み込み
+
+$media_cache = {}
+$media_aliases = {
+  phone:           '(max-width: %s)' % $screen-phone-max
+  phone-and-less:  '(max-width: %s)' % $screen-phone-max
+  tablet:          '(min-width: %s) and (max-width: %s)' % ($screen-tablet $screen-tablet-max)
+  tablet-and-less: '(max-width: %s)' % ($screen-tablet-max)
+  tablet-and-more: '(max-width: %s)' % ($screen-tablet-max)
+  pc:              '(min-width: %s) and (max-width: %s)' % ($screen-pc $screen-pc-max)
+  pc-and-less:     '(max-width: %s)' % ($screen-pc-max)
+  pc-and-more:     '(min-width: %s)' % ($screen-pc)
+  largepc:         '(min-width: %s)' % ($screen-largePc)
+  largepc-and-more:'(min-width: %s)' % ($screen-largePc)
+}
+
+// Mixin for caching the blocks with the given conditions
+_media($media='')
+  if $media != ''
+    $media = unquote($media_aliases[$media] || $media)
+    $media = '(%s)' % $media unless match('\(', $media)
+    $media = 'only screen and %s' % $media
+    @media $media
+      {block}
+  else
+    {block}
+
+_hide($media='')
+  +_media($media)
+    diaplay none !important

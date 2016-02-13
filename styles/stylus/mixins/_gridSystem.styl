@@ -1,0 +1,42 @@
+// 作成 近藤猛
+// ncukondo@gmail.com
+// グリッドシステム
+// 2016/02/12 作成(近藤)
+@require '../_variables'
+@require '_mediaQueries'
+
+_gridWrapper($media)
+  //clearfix
+  +_media($media)
+    selector()::after
+      content ""
+      display table
+      clear both
+
+_grid($col=1,$media='',$totalCol=$gridDefaultCol)
+  +_media($media)
+    width  __calc_grid_width($col , $totalCol)
+    float left
+    position relative
+    min-height 1px
+
+_gridOffset($col=1,$media='',$totalCol=$gridDefaultCol)
+  +_media($media)
+    margin-left  __calc_grid_width($col , $totalCol)
+
+_gridPush($col=1,$media='',$totalCol=$gridDefaultCol)
+  +_media($media)
+    right  __calc_grid_width($col , $totalCol)
+
+_gridPull($col=1,$media='',$totalCol=$gridDefaultCol)
+  +_media($media)
+    left  __calc_grid_width($col , $totalCol)
+
+__calc_grid_width($col,$totalCol)
+  if unit($col) == ''
+    if $col < 1  // 分数で指摘すればそのままカラム計算
+      ($col * 100) + '%'
+    else
+      (($col / $totalCol) * 100) + '%'
+  else // %などで直接指定も可能
+    $col
