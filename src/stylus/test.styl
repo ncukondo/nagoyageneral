@@ -1,0 +1,15 @@
+@require './mixins/_mediaQueries'
+@require './mixins/_gridSystem'
+
+.class2
+  +_media('pc-and-more')
+    background-color red
+  _hide('phone')
+  _grid(20%,'tablet')
+
+
+.clas
+  background-color white
+  _hide('phone')
+  +_media('tablet')
+    background-color red

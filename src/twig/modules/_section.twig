@@ -1,0 +1,14 @@
+{% macro section(wrapperClassName, title, content, contentClass) %}
+  <div class="sectionWrapper {{wrapperClassName}}">
+    <article class="sectionWrapper_section section">
+      {% if title %}
+      <h1 class="section_title">{{title}}</h1>
+      {% endif %}
+      {% if content %}
+        <div class="section_content {{contentClass}}">
+          {{content}}
+        </div>
+      {% endif %}
+    </article>
+  </div>
+{% endmacro %}

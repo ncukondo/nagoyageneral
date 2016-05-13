@@ -17,18 +17,18 @@ gulp.task('favicon', function(done) {
 		design: {
 			ios: {
 				pictureAspect: 'backgroundAndMargin',
-				backgroundColor: '#ffffff',
+				backgroundColor: config.themeColor,
 				margin: '14%'
 			},
 			desktopBrowser: {},
 			windows: {
 				pictureAspect: 'noChange',
-				backgroundColor: '#da532c',
+				backgroundColor: config.themeColor,
 				onConflict: 'override'
 			},
 			androidChrome: {
 				pictureAspect: 'shadow',
-				themeColor: '#ffffff',
+				themeColor: config.themeColor,
 				manifest: {
 					name: config.siteName,
 					display: 'browser',
@@ -39,7 +39,7 @@ gulp.task('favicon', function(done) {
 			},
 			safariPinnedTab: {
 				pictureAspect: 'silhouette',
-				themeColor: '#5bbad5'
+				themeColor: config.themeColor
 			}
 		},
 		settings: {

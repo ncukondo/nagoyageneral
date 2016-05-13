@@ -1,0 +1,90 @@
+//
+// メールフォームをスタイル
+// 責任者: 近藤猛
+// ncukondo@gmail.com
+// 2016/05/07 作成
+@require '../_variables';
+
+
+.mailFormWrapper{
+  background-color: $colorBack3;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+
+
+.mailForm{
+  color: $colorMenuBack;
+
+  input::placeholder, textarea::placeholder{
+    color:$colorGrayText;
+  }
+  .required::after{
+    content: '必須';
+    display: inline-block;
+    width: 2.5em;
+    font-size: 0.7em;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $colorMenuBack;
+    color: white;
+    padding: 0.1em;
+    margin: 0 0.5em 0 0.5em;
+  }
+
+  &_textArea{
+    width: 100%;
+    height: 7em;
+    margin-top: 1rem;
+  }
+  &_text{
+    width: 100%;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  &_textArea, &_text, &_select{
+    border: none;
+    padding: 0.3rem;
+    outline: 0;
+    transition:.3s;
+    border:1px solid transparent;
+    background-color: alpha(white, 70%);
+    &:hover{
+      background-color: alpha(white, 90%);
+    }
+    &:focus, &:valid{
+      background-color: alpha(white, 100%);
+      border:1px solid $colorMenuBack;
+    }
+  }
+
+
+  &_textLabel{
+    display: block;
+    margin-bottom: 0.5rem;
+    color: $colorMenuBack;
+
+  }
+  &_selectLabel{
+    padding-right: 1rem;
+    color: $colorMenuBack;
+  }
+  &_select{
+    margin: 0.5rem 0 0.5rem 0;
+  }
+  &_buttonWrapper{
+    text-align: right;
+    padding: 0;
+  }
+  &_button{
+    border: gray 1px;
+    background-color: $colorMenuBack;
+    color: white;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 1rem 0 0 0;
+    transition-duration: .3s;
+    &:hover{
+      box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    }
+  }
+
+}

@@ -1,0 +1,13 @@
+/*
+* Noto Sans Japanese (japanese) http://www.google.com/fonts/earlyaccess
+ */@font-face {
+  font-family:'NotoSansJmini';font-weight:100;src:local(NotoSansJP-Light.otf);src:url("../webfonts/NotoSansJmini-Light.eot");src:url("../webfonts/NotoSansJmini-Light.eot?#iefix") format('eot'), url("../webfonts/NotoSansJmini-Light.woff") format('woff'), url("../webfonts/NotoSansJmini-Light.ttf") format('truetype');
+}
+
+@font-face {
+  font-family:'NotoSansJmini';font-weight:400;src:local(NotoSansJP-Regular.otf);src:url("../webfonts/NotoSansJmini-Regular.eot");src:url("../webfonts/NotoSansJmini-Regular.eot?#iefix") format('eot'), url("../webfonts/NotoSansJmini-Regular.woff") format('woff'), url("../webfonts/NotoSansJmini-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family:'NotoSansJmini';font-weight:700;src:local(NotoSansJP-Bold.otf);src:url("../webfonts/NotoSansJmini-Bold.eot");src:url("../webfonts/NotoSansJmini-Bold.eot?#iefix") format('eot'), url("../webfonts/NotoSansJmini-Bold.woff") format('woff'), url("../webfonts/NotoSansJmini-Bold.ttf") format('truetype');
+}

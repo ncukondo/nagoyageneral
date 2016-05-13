@@ -1,0 +1,75 @@
+.globalFooter_sub {
+  background-color: #5d915d;
+}
+
+.globalFooter .footerIcon {
+  display: inline-block;
+  position: relative;
+  color: #2f4b33;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0.5rem 0 0 0.5rem;
+}
+
+.globalFooter .footerIcon_item {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.2rem;
+  border-radius: 50%;
+  background: #7ec988;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.globalFooter .footerIcon_item:hover {
+  background: #fff;
+}
+
+.globalFooter .footerIcon_label {
+  position: absolute;
+  opacity: 0;
+  font-size: 0.8rem;
+  top: -2.5rem;
+  left: -4.5rem;
+  width: 7rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  background: #000;
+  color: #fff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.globalFooter .footerIcon_label:after {
+  position: absolute;
+  top: 100%;
+  left: 5rem;
+  height: 0;
+  width: 0;
+  border: 0.5rem solid transparent;
+  border-top: 0.5rem solid #000;
+  content: "";
+}
+
+.globalFooter .footerIcon:hover .footerIcon_label {
+  top: -3rem;
+  opacity: 1;
+}
+
+.globalFooter .footerMain {
+  background-color: #2f4b33;
+}
+
+.globalFooter .footerMain_addressbox {
+  font-size: 0.8rem;
+  display: block;
+  color: #fff;
+  padding: 1rem 2rem 0 0;
+  text-align: right;
+}
+
+.globalFooter .footerIcons {
+  text-align: right;
+  padding: 0.5rem 2rem 1rem 2rem;
+}

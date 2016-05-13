@@ -1,0 +1,252 @@
+/*
+ *  サイト共通スタイルユニット
+ *  責任者 近藤猛
+ */
+// ncukonodo@gmail.com
+// コーディング規則にはBEMを使用する(一部以下のようにアレンジ)
+//    右記を参照 http://qiita.com/mrd-takahashi/items/07dc3b4bad027daa2884
+//    BlockとElement間セパレータ "_"シングルアンダーバー
+//    Modifierセパレータ "-" ハイフン1つ
+//    ModifierのKeyとValueの区切りはローワーキャメルケース
+//    単語間の区切りはローワーキャメルケース
+//  2016/01/25 作成
+
+@require "_variables"; // 共通設定を読み込み
+
+@require "mixins/_iconfont"; // アイコンフォントを読み込み
+@require "mixins/_mediaQueries"; // メディアクエリ読み込み
+
+
+// baseの記述(SMACSSの概念)
+@require "_base"; // normalizeも含むベースの読み込み
+
+@require "modules/_globalHeader"; // グローバルヘッダとナビゲーション
+@require "modules/_siteTitlePanel"; // タイトルパネルのスタイル読込
+@require "modules/_mailForm"; // メールフォーム
+@require "modules/_globalFooter"; // グローバルフッタ
+
+.sectionWrapper{
+  &_section{
+    padding: 2rem 1rem 2rem 1rem;
+    +_media(largepc-and-more){
+      width: $screen-pc-max;
+      margin: auto;
+    }
+  }
+}
+
+.section{
+  &_title{
+    color:$colorAccentText;
+  }
+}
+
+.banVideoSectionWrapper{
+  .banVideo{
+    +_media(tablet-and-more){
+      display: flex;
+      justify-content: space-between;
+      &_description{
+        width:40%;
+      }
+      &_videoClip{
+        width:40%;
+      }
+    }
+  }
+  .videoClipWrapper{
+    position: relative;
+    .videoClip_thumbnail{
+      width: 100%;
+      filter:grayscale(50%) brightness(50%);
+      transition-duration: .3s;
+      &:hover{
+        filter:none;
+      }
+    }
+    &::after{
+      _iconFont('play');
+      font-size: 3rem;
+      size: 3rem;
+      color: white;
+      position: absolute;
+      _centerBox();
+      transition-duration:.3s;
+      +_hover(){
+        transform: scale(1.5);
+      }
+    }
+  }
+}
+
+.banVideoArticleWrapper{
+  background-color: $colorPrimaryBack;
+}
+
+.banVideo{
+  @include mq-larger-than-tablet{
+    flex-wrap: nowrap;
+  }
+  @include mq-smaller-than-pc{
+    flex-wrap: wrap;
+  }
+  &_titleSection, &_videoSection{
+    display: block;
+  }
+  &_videoSection{
+    flex-shrink: 0;
+    @include mq-larger-than-tablet{
+      width:50%;
+    }
+    @include mq-smaller-than-pc{
+      width:100%;
+    }
+  }
+  &_titleSection{
+    @include mq-larger-than-tablet{
+      padding-right: 2rem;
+    }
+    width:auto;
+  }
+}
+
+
+.articleSectionWrapper{
+  background-color: $colorBack2;
+  .articleCardContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    perspective: 50px;
+    .articleCardLink{
+      background-color: $colorPrimaryBack;
+      transition-duration: .3s;
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transform:translateZ(0px);
+      &:hover{
+        box-shadow: 1px 1px 2rem rgba(0,0,0,0.5);
+        transform:translateZ(1px);
+      }
+      +_media(phone-and-less){
+        width: 100%;
+      }
+      +_media(tablet){
+        width: 48%;
+      }
+      +_media(pc-and-more){
+        width: 23%;
+      }
+      .card{
+        +_media(tablet-and-less){
+          display: flex;
+        }
+        &_contents{
+          padding: 0.5rem;
+        }
+        &_title{
+          font-size: 1.5rem;
+          +_media(tablet-and-less){
+            font-size: 1rem;
+          }
+        }
+        .date{
+          color: $colorGrayText;
+          font-size: 0.8rem;
+          margin-bottom:2rem;
+          text-align: right;
+          @include mq-smaller-than-pc{
+            font-size: 0.7rem;
+          }
+        }
+        .readMore{
+          position: absolute;
+          bottom:0.5rem;
+          right: 0.5rem;
+          text-align: right;
+          color: $colorHighlightText;
+          @include mq-smaller-than-pc{
+            font-size: 0.8rem;
+          }
+        }
+        .cardImageWrapper{
+          +_media(tablet-and-less){
+            height:8rem;
+          }
+          .cardImage{
+            +_media(tablet-and-less){
+              height: 100%;
+              width: auto;
+            }
+            +_media(pc-and-more){
+              width: 100%;
+              height:auto;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+
+.conceptSectionWrapper{
+  +_media(pc-and-more){
+    .conceptCardContainer{
+      display: flex;
+      justify-content:   space-between;
+      .card{
+        width: 30%;
+      }
+    }
+  }
+
+}
+
+.appealSectionWrapper{
+  background-color: $colorAccentText;
+  height: 80vh;
+  position: relative;
+  .section{
+    &_title{
+      _centerBox();
+      width: 28rem;
+      height:3rem;
+      color:$colorMenuText1 ;
+    }
+  }
+}
+
+
+.mailSectionWrapper{
+  +_media(pc-and-more){
+    background-size: cover;
+    background-position: center;
+    background-image: url($dirImage/20150425_095400.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    .section{
+      &, &_title{
+        color: $colorMenuText1 ;
+      }
+      .mailSectionContent{
+        display: flex;
+        justify-content:   space-between;
+        &_description{
+          width:55%;
+        }
+        &_form{
+          width:40%;
+        }
+      }
+    }
+  }
+}
+
+
+
+// mixinを使ってアイコンを定義
+_iconFonts('icon-', 'pin' 'facebook' 'mail' 'twitter' 'email')// 最初の引数でprefix, 後は使うアイコンの名前を並べる

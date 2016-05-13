@@ -1,0 +1,19 @@
+{% macro form(php) %}
+<div class="mailFormWrapper">
+<form action={{ php|default("mail.php") }} method="post" id="mailForm" class="mailFormWrapper_content mailForm">
+  <label class="mailForm_textLabel required" for="mailForm_name">お名前</label>
+  <input class="mailForm_text required" name="mailForm_name" type="text" id="mailForm_name" placeholder="お名前をフルネームで" required>
+  <label class="mailForm_textLabel required" for="mailForm_email">メールアドレス</label>
+  <input class="mailForm_text required" name="mailForm_email" type="email" id="mailForm_mail" placeholder="メールアドレスを記入して下さい" required>
+  <label class="mailForm_selectLabel required" for="mailForm_condition">ご身分</label>
+  <select class="mailForm_select required" name="mailForm_condition" id="mailForm_condition" placeholder="ご身分を選択して下さい" required>
+    <option value=""></option>
+    <option value="doctor">医師(研修医含む)</option>
+    <option value="studentdoctor">医学生</option>
+    <option value="medicalstaff">その他医療関係者</option>
+    <option value="medicalstudent">その他医療系学生</option>
+    <option value="other">その他</option>
+  </select>
+  <textarea class="mailForm_textArea required" placeholder="お問い合せ内容をお書き下さい" id="mailForm_text" required></textarea>
+  <div class="mailForm_buttonWrapper"><input class="mailForm_button" type="submit" value="送信"></div>
+{% endmacro %}

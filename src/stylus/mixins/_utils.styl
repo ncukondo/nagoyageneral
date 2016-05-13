@@ -1,0 +1,47 @@
+
+
+// 親要素のホバーにマッチするセレクター
+_parentHover($depth = 1)
+  $__selectors = split(' ', selector())
+  $__parent = ''
+  for $i in 1..$depth
+    $__parent = $__parent + '../'
+  {$__parent}:hover {$__selectors[length($__selectors) - $depth]}
+    {block}
+
+// 擬似要素に対応したホバー
+_hover()
+  if match('\:after$', selector()){
+    ../:hover::after{
+      {block}
+    }
+  }else{
+    if  match('\:before$', selector()){
+      ../:hover::before{
+        {block}
+      }
+    }else{
+        &:hover{
+          {block}
+        }
+    }
+  }
+
+size($width, $height = $width)
+  +cache('w' + $width)
+    width: $width
+  +cache('h' + $height)
+    height: $height
+
+
+-pos(type, args)
+  i = 0
+  position: unquote(type)
+  {args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+  {args[i += 1]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+
+absolute()
+  -pos('absolute', arguments)
+
+fixed()
+  -pos('fixed', arguments)

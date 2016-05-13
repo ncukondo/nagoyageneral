@@ -18,8 +18,20 @@ module.exports = {
 
   // stylus
   stylus:{
-    src : "./styles/stylus",
-    dest : "./styles/css",
+    src : src + "stylus/**/*.styl",
+    dest : dest + "css/",
+  },
+
+  //twigテンプレートエンジン
+  twig:{
+    src: src + "twig/**/!(_)*.twig",
+    dest : dest,
+  },
+
+  // javascript
+  javascript:{
+    src: src + "javascripts/**/!(_)*.js",
+    dest : dest + "js/",
   },
 
   // markdownテキストの処理
@@ -28,36 +40,44 @@ module.exports = {
     dest: dest,
   },
 
+  // フォントのサブセット化
+  minifyFont:{
+    src: src + "webfont/src/*.ttf",
+    dest: dest +"webfont/",
+    subSetChars:  src + "webfont/subset.txt"
+  },
+
 
   // お気に入り用アイコン作成
   favicon:{
     siteName: "名大総診",
     dest: dest + "favicons/",
-    masterPicture : src + "images/favicon/favicon.png",
-    htmlSrc: [src + "html/templates/favicon_header.src.html"],
-    htmlDest: src + "html/templates/",
-    htmlToFavicon: '<%= faviconDir %>',
-    htmlDestFileName: "favicon_header.html",
-    dataJson:  src + "images/favicon/faviconData.json",
+    masterPicture : src + "favicon/favicon.png",
+    htmlSrc: [src + "favicon/_faviconHeader.html"],
+    htmlDest: src + "twig/modules/",
+    htmlToFavicon: '{% block faviconDir %}{{ pathToTop }}favicons{% endblock faviconDir %}',
+    htmlDestFileName: "_faviconHeader.twig",
+    dataJson:  src + "favicon/faviconData.json",
+    themeColor: "#05401d",
   },
 
   // iconfont自動作成用
   iconfont:{
-    src : ["./icons/svg/*.svg"],
+    src : [ src+"iconfont/svg/*.svg"],
     fontName: 'iconfont',
     formats: ['ttf', 'eot', 'woff', 'svg'],
-    dest : "./icons/fonts/",
-    htmlDest : "./icons/",
-    htmlTemplate : './icons/templates/iconfont.html',
+    dest : dest + "icons/fonts/",
+    htmlDest : src+"iconfont/",
+    htmlTemplate : src+'iconfont/templates/iconfont.html',
     htmlToCSSPath : './',
-    cssDest : "./icons/",
-    cssTemplate : './icons/templates/iconfont.css',
+    cssDest : src+"iconfont/",
+    cssTemplate : src+'iconfont/templates/iconfont.css',
     cssClassName : 'icon',
     cssFontPath : './fonts/',
-    mixinDest : "./styles/stylus/mixins/",
-    mixinTemplate : './icons/templates/_iconfont.styl',
+    mixinDest : src + "stylus/mixins/",
+    mixinTemplate : src+'iconfont/templates/_iconfont.styl',
     mixinClassName : 'icon',
-    mixinFontPath : '../../icons/fonts/',
+    mixinFontPath : '{$dirIconFont}/',
   },
 
 
@@ -74,12 +94,14 @@ module.exports = {
   // watch
   watch: {
     sass: './styles/sass/**/*.scss',
-    stylus: './styles/stylus/**/*.styl',
+    stylus: src + 'stylus/**/*.styl',
+    javascript: src + 'javascripts/**/*.js',
+    twig: src + 'twig/**/*.twig',
   },
 
   // build
   build:{
-    tasks:['sass','stylus'],
+    tasks:['sass','stylus','twig'],
   },
   // default
   default:{

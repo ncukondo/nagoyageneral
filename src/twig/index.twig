@@ -1,0 +1,62 @@
+cm{% extends 'modules/_base.twig' %}
+
+{% block title %}名古屋大学医学部附属病院総合診療科{% endblock title %}
+{% block contents %}
+{% import "./modules/_section.twig" as section %}
+{% import "./modules/_cards.twig" as cards %}
+  {% include "modules/_siteTitlePanel.twig" %}
+
+  {% set content %}
+    <div class="banVideo_description">医学生が身体診察を学ぶ最初のガイドとなり、かつ経験を経ても色あせない身体診察の基本ガイド。当科教授伴信太郎による伴ビデオを無料で公開しております。ぜひ研鑽に教育にご活用下さい。</div>
+    <div class="videoClipWrapper  banVideo_videoClip">
+    <a class="videoClipWrapper_videoClip videoClip" href="https://www.youtube.com/watch?v=LFY62yNFQm8"><img  class="videoClip_thumbnail banVideoClipWrapper_thumbnail" alt="Youtubeでみる"  src="http://i.ytimg.com/vi/LFY62yNFQm8/sddefault.jpg" /></a>
+    <div>
+  {% endset %}
+  {{ section.section('banVideoSectionWrapper', 'あの伴ビデオ、無料公開しています', content, 'banVideo') }}
+
+
+  {% macro articleCard(title, date, image,link) %}
+    {% set footer %}
+    <footer  class="date">更新: {{date}}</footer>
+    <div class="readMore">→詳しく読む</div>
+    {% endset %}
+    {% import "./modules/_cards.twig" as cards %}
+    {{ cards.linkImageCard('articleCard', title, '',footer, image, link) }}
+  {% endmacro %}
+  {% import _self as self %}
+
+  {% set content %}
+    {{ cards.container('articleCardContainer') }}
+    {{ self.articleCard( '難病に立ち向かうことで何を学んでいるのか?', '2016/05/13','./images/profban.jpg', '#') }}
+    {{ self.articleCard( '家族を大切にする医局ではなぜよい医師が育つのか?', '2016/05/13','./images/family.jpg', '#') }}
+    {{ self.articleCard( 'はめを外すことが時に大事なわけ?', '2016/05/13','./images/2014-10-24.jpg', '#') }}
+    {{ self.articleCard( '遠く離れてもつながる仲間、帰る場所があること', '2016/05/13','./images/doctors.jpg', '#') }}
+    {{ cards.endContainer() }}
+  {% endset %}
+  {{ section.section('articleSectionWrapper', '特集記事', content) }}
+
+  {% set content %}
+  {{ cards.container('conceptCardContainer') }}
+    {{ cards.basicCard('conceptCard', '診療', '私達は、疾患だけを診るのではなく、患者が抱えるあらゆる健康問題に関心を注ぎ、目の前の患者のみではなく、まわりを取り巻く家族、地域にも目を向けることを忘れません。診断・治療だけではなく、予防から福祉・介護までを視野に入れた総合ヘルスケアを実践します。') }}
+    {{ cards.basicCard('conceptCard', '教育', '患者が抱える様々な問題を総合的に捉えることを「専門」とする医療人の養成/教育を行います。また、すべての臨床医にとって必要とされる基本的臨床能力の獲得を支援します。') }}
+    {{ cards.basicCard('conceptCard', '研究', '臨床・教育の場における問題意識に立脚した研究を行います。研究成果を臨床・教育の場にフィードバックし、患者・学習者の益に資することを目的とします。') }}
+  {{ cards.endContainer() }}
+  {% endset %}
+  {{ section.section('conceptSectionWrapper', '名大総診の理念', content) }}
+
+
+  {{ section.section('appealSectionWrapper', '私たちの仲間になりませんか?' ) }}
+
+  {% set content %}
+    <div class="mailSectionContent_description">
+      どんな研修ができる? どんな働き方が出来る? どんなことが学べる? スタッフが一人一人にあわせて相談にのります。
+    </div>
+    <div class="mailSectionContent_form">
+      {% import "./modules/_mailForm.twig" as mailForm %}
+      {{ mailForm.form() }}
+    </div>
+  {% endset %}
+  {{ section.section('mailSectionWrapper', 'まずは気軽にお問い合わせを!', content, 'mailSectionContent') }}
+
+  {{ parent() }}
+{% endblock contents %}

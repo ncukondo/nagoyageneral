@@ -1,0 +1,21 @@
+// 作成 近藤猛
+// ncukondo@gmail.com
+// 簡易レイアウトシステム
+// 2016/02/12 作成(近藤)
+@require '../_variables'
+@require '_mediaQueries'
+
+_linerList($media='')
+  +_media($media)
+    display: flex;
+    vertical-align:middle;
+
+_centerBox($media='')
+  +_media($media)
+    display: block;
+    position: absolute;
+    margin:auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;

@@ -1,0 +1,28 @@
+/*
+* Noto Sans Japanese (japanese) http://www.google.com/fonts/earlyaccess
+ */
+
+
+$webfont_fontname = 'NotoSansMini';
+$webfont_filename = 'GenShinGothic-P-';
+$webfont_path = '../webfonts/';
+$webfont_weight = {
+  Light:100
+  Regular:400
+  Bold:700 }
+
+for $fontWeight in 'Light' 'Regular' 'Bold'
+  @font-face
+    $__fontformat = $webfont_path + $webfont_filename+'-'+$fontWeight+'.%s';
+    $__eot = $__fontformat %  unquote('eot')
+    $__eotie = $__fontformat %  unquote("eot?#iefix")
+    $__woff = $__fontformat % unquote('woff')
+    $__truetype = $__fontformat %  unquote('ttf')
+    $__local_font = 'NotoSansJP-%s.otf' % unquote($fontWeight)
+    font-family: $webfont_fontname;
+    font-weight: $webfont_weight[$fontWeight]
+    src: local($__local_font);
+    src: url($__eot);
+    src: url($__eotie) format('eot'),
+      url($__woff) format('woff'),
+      url($__truetype) format('truetype');

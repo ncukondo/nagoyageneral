@@ -1,0 +1,83 @@
+// 作成 近藤猛
+// ncukondo@gmail.com
+// グローバルフッター
+// 2016/05/06 作成(近藤)
+
+@require "../_variables";
+@require "../mixins/_utils";
+
+
+
+.globalFooter{
+
+  &_sub{
+    background-color: $colorSubMenuBack;
+  }
+  .footerIcon{
+    display: inline-block;
+    position: relative;
+    color:$colorMenuBack;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0.5rem 0 0 0.5rem;
+    &_item{
+      display: inline-block;
+       width: 2rem;
+       height: 2rem;
+       padding: 0.2rem;
+       border-radius: 50%;
+       background: #7EC988;
+       transition: .3s;
+       &:hover{
+         background: white;
+       }
+    }
+
+    // マウスホバーで出現する吹き出しをスタイル
+    &_label{
+      //三角矢印を作る
+      &:after{
+        position: absolute;
+        top: 100%;
+        left: 5rem;
+        height: 0;
+        width: 0;
+        border: 0.5rem solid transparent;
+        border-top: 0.5rem solid black;
+        content: "";
+      }
+
+      position: absolute;
+      opacity: 0;
+      font-size: 0.8rem;
+      top: -2.5rem;
+      left: -4.5rem;
+      width: 7rem;
+      padding: 0.5rem;
+      border-radius: 2px;
+      background: black;
+      color: #fff;
+      transition: .3s;
+      // 親要素のホバーで出現
+      +_parentHover(){
+        top: -3rem;
+        opacity: 1;
+      }
+
+    }
+  }
+  .footerMain{
+    background-color: $colorMenuBack;
+    &_addressbox{
+      font-size: 0.8rem;
+      display: block;
+      color: white;
+      padding: 1rem 2rem 0 0;
+      text-align: right;
+    }
+  }
+  .footerIcons{
+    text-align: right;
+    padding: 0.5rem 2rem 1rem 2rem;
+  }
+}

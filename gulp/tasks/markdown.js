@@ -5,7 +5,7 @@ var html = require( 'remark-html');
 var config = require('../config').markdown;
 var rename = require('gulp-rename');
 
-
+// マークダウンのhtml化, まだ途中でありうまくいっていない
 gulp.task('markdown', function(done) {
 
 	gulp.src(config.src)

@@ -4,13 +4,15 @@ var stylus = require('gulp-stylus');
 var plumber = require("gulp-plumber");
 var autoprefixer = require("gulp-autoprefixer");
 var combineMq = require('gulp-combine-mq');
+var postcss = require('gulp-postcss');
 
 // スタイルシートの処理(stylys)
 gulp.task('stylus', function(){
-
-    gulp.src([config.src+ '/**/*.styl', '!'+config.src+ '/**/*.styl'])
+    //console.log(config.src+ ' > '+config.dest);
+  gulp.src([config.src])
     .pipe(plumber())
     .pipe(stylus())
+    .pipe(postcss([ require('postcss-flexibility') ]))
     .pipe(autoprefixer())
     .pipe(combineMq())
     .pipe(gulp.dest(config.dest))

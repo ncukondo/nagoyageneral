@@ -1,0 +1,42 @@
+{% macro container(className) %}
+  <div class="{{className}} cardContainer">
+{% endmacro %}
+
+
+{% macro basicCardContent(title, description,footer) %}
+  <h1 class="card_title">{{title}}</h1>
+  {% if description %}
+  <p class="card_description">{{description}}</p>
+  {% endif %}
+  {% if footer %}
+  <footer  class="card_footer">{{footer}}</footer>
+  {% endif %}
+{% endmacro %}
+
+
+{% macro basicCard(className, title, description,footer) %}
+  <section class="card {{className}}">
+    {{ _self.basicCardContent(title, description,footer) }}
+  </section>
+{% endmacro %}
+
+{% macro imageCard(className, title, description,footer, image) %}
+  <section class="card {{className}}">
+    <div class="cardImageWrapper" >
+      <img class="cardImage" src={{image}}  />
+    </div>
+    <div class="card_contents">
+      {{ _self.basicCardContent(title, description,footer) }}
+    </div>
+  </section>
+{% endmacro %}
+
+{% macro linkImageCard(className, title, description,footer, image,link) %}
+<a href={{link}} class="cardlink {{className}}Link">
+  {{ _self.imageCard(className, title, description,footer, image) }}
+</a>
+{% endmacro %}
+
+{% macro endContainer() %}
+  </div>
+{% endmacro %}

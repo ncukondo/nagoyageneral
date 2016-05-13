@@ -45,10 +45,11 @@
 .icon-keyboard_arrow_right:before { content: "\EA0A" }
 .icon-keyboard_arrow_up:before { content: "\EA0B" }
 .icon-mail:before { content: "\EA0C" }
-.icon-pin:before { content: "\EA0D" }
-.icon-play-youtube:before { content: "\EA0E" }
-.icon-play:before { content: "\EA0F" }
-.icon-rss:before { content: "\EA10" }
-.icon-share:before { content: "\EA11" }
-.icon-twitter:before { content: "\EA12" }
+.icon-new-window:before { content: "\EA0D" }
+.icon-pin:before { content: "\EA0E" }
+.icon-play-youtube:before { content: "\EA0F" }
+.icon-play:before { content: "\EA10" }
+.icon-rss:before { content: "\EA11" }
+.icon-share:before { content: "\EA12" }
+.icon-twitter:before { content: "\EA13" }
 
