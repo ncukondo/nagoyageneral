@@ -18,7 +18,7 @@ module.exports = {
 
   // stylus
   stylus:{
-    src : src + "stylus/**/*.styl",
+    src : src + "stylus/**/!(_)*.styl",
     dest : dest + "css/",
   },
 
@@ -32,6 +32,12 @@ module.exports = {
   javascript:{
     src: src + "javascripts/**/!(_)*.js",
     dest : dest + "js/",
+  },
+
+  // javascriptに関連するcssのフォルダ
+  jscss:{
+    src: src + "jscss/**/!(_)*.css",
+    dest : dest + "css/jscss/",
   },
 
   // markdownテキストの処理
@@ -96,12 +102,13 @@ module.exports = {
     sass: './styles/sass/**/*.scss',
     stylus: src + 'stylus/**/*.styl',
     javascript: src + 'javascripts/**/*.js',
+    jscss: src + 'jscss/**/*.css',
     twig: src + 'twig/**/*.twig',
   },
 
   // build
   build:{
-    tasks:['sass','stylus','twig'],
+    tasks:['sass','stylus','twig','javascript','jscss'],
   },
   // default
   default:{

@@ -1,3 +1,4 @@
+@require "_mediaQueries"; // メディアクエリ読み込み
 
 
 // 親要素のホバーにマッチするセレクター
@@ -33,15 +34,31 @@ size($width, $height = $width)
   +cache('h' + $height)
     height: $height
 
+_linerList($media='')
+  +_media($media)
+    display: flex;
+    vertical-align:middle;
 
--pos(type, args)
+_centerBox($media='')
+  +_media($media)
+    display: block;
+    position: absolute;
+    margin:auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+
+
+
+__pos(type, args)
   i = 0
   position: unquote(type)
   {args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
   {args[i += 1]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
 
 absolute()
-  -pos('absolute', arguments)
+  __pos('absolute', arguments)
 
 fixed()
-  -pos('fixed', arguments)
+  __pos('fixed', arguments)

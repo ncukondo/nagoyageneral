@@ -1,11 +1,11 @@
 (function() {
   "use strict";
 
-  var cssDir = "/nagoyageneral/styles/css/";
-  var scriptsDir = "/nagoyageneral/jscripts/";
+  var cssDir = "css/jscss/";
+  var scriptsDir = "./js/";
 
   // 以下ヘッダーメニューを自動的に隠しスクロールで表示する処理の設定
-  var menuClass= ".headerMenu";
+  var menuClass= ".globalNavi";
   var marginTop=200;
   headerMenu();
 

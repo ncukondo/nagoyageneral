@@ -1,0 +1,125 @@
+/*
+ *  タイトルパネルのアニメーション
+ *  責任者 近藤猛
+ */
+// ncukonodo@gmail.com
+//
+// アニメーションに関しては以下を参照
+// http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/css/css3%E3%83%95%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E8%83%8C%E6%99%AF%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89%E3%82%B7%E3%83%A7%E3%83%BC/
+//
+//  2016/01/31 作成
+@require "../_variables"; // 共通変数読み込み
+@require "../mixins/_utils";
+
+$dirImage = '../'+$dirImage;
+
+
+.siteTitlePanel{
+  &_title{
+    animation: delayFaedeOut 6s both 0s;
+  }
+}
+
+@keyframes delayFaedeOut{
+	0% {
+    opacity:1;
+	}
+  90% {
+    opacity: 1;
+	}
+	100% {
+    opacity: 0;
+	}
+}
+
+.concepts{
+  &_title{
+    opacity: 0;
+    _centerBox();
+    size:100%;
+    color: transparent;
+    animation: zoom 18s linear infinite 6s;
+    background-size: cover;
+    background-sposition: center;
+  }
+
+  &_content{
+    opacity: 0;
+    color:white;
+    height: 1em;
+    _centerBox();
+    font-size: 3rem;
+    z-index:1;
+    animation: zoomAppearFade 18s linear infinite;
+  }
+
+
+  dt:nth-of-type(1),dd:nth-of-type(1){
+    animation-delay: 6s;
+  }
+  dt:nth-of-type(2),dd:nth-of-type(2){
+    animation-delay: 12s;
+  }
+  dt:nth-of-type(3),dd:nth-of-type(3){
+    animation-delay: 18s;
+  }
+
+  dt:nth-of-type(1){
+    background-image: url($dirImage/$panelImage1);
+  }
+  dt:nth-of-type(2){
+    background-image: url($dirImage/$panelImage2);
+  }
+  dt:nth-of-type(3){
+    background-image: url($dirImage/$panelImage3);
+  }
+}
+
+@keyframes zoom{
+  0%{
+    opacity: 0;
+    transform: scale(1);
+  }
+  3%{
+    opacity: 1;
+  }
+  33%{
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  40%{
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes zoomAppearFade{
+  0%{
+    opacity: 0;
+    text-shadow: 0px 0px 20px $fontColor;
+    transform: translate(0, 0) scale(1);
+    color:transparent;
+  }
+  2%{
+    opacity: 1;
+    text-shadow: 0px 0px 10px $fontColor;
+  }
+  12%{
+    color:white;
+  }
+  33%{
+    text-shadow: 0px 0px 2px $fontColor;
+    opacity: 1;
+    transform: scale(1);
+  }
+  36%{
+    opacity: 0;
+    transform: translate(0, 0) scale(3);
+  }
+  100%{
+    opacity: 0;
+  }
+}

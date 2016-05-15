@@ -5,7 +5,7 @@
 // ncukonodo@gmail.com
 //
 
-@require "../mixins/_layout"; // タイトルパネルのスタイル読込
+@require "../mixins/_utils"; // タイトルパネルのスタイル読込
 @require "../_variables"; // タイトルパネルのスタイル読込
 
 
@@ -20,7 +20,6 @@ $panelImage3 = "忘年会2013.jpg";
 
 .siteTitlePanel{
   height: 90vh; // ビューポートの高さとの割合でにパネル高さを設定
-  display: block;
   position: relative;
   background-color:  black;
   text-align: center;
@@ -58,7 +57,7 @@ $panelImage3 = "忘年会2013.jpg";
       width:5em;
       font-weight: 500;
       letter-spacing: 0.2em;
-    	animation: blurShrink 2s both .5s;
+      animation: blurShrink 2s both .5s;
       display:block;
 
       // タイトルのアンダーラインを作成
